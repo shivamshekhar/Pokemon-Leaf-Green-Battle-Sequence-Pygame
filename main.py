@@ -189,8 +189,8 @@ def main():
     bg_music = pygame.mixer.Sound('sounds/wild_pokemon_appears.ogg')
     bg_music.play(-1)
 
-    wildPokemon = wildpokemon(22)
-    mypokemon = playerpokemon(88)
+    wildPokemon = wildpokemon(1)
+    mypokemon = playerpokemon(1)
     grass = grasspatch()
 
     while not gameOver:
