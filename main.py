@@ -145,9 +145,9 @@ class wildpokemon(pygame.sprite.Sprite):
         self.num = num
         self.x = int((num-1)/10)
         self.y = num - (self.x)*10
-        self.image,self.rect = load_sprite_sheet('pokemon_gen1.png', 161*(self.y - 1), int(1 + 65.6*(self.x)),65,65,int(0.25*width),int(0.4*height),-1)
-        self.rect.left = int((-1*self.rect.width)*1.8)
-        self.rect.top = int(0.1 * height)
+        self.image,self.rect = load_sprite_sheet('pokemon_gen1.png', 161*(self.y - 1), int(1 + 65.6*(self.x)),65,65,int(0.23*width),int(0.345*height),-1)
+        self.rect.left = int((-1*self.rect.width)*2)
+        self.rect.top = int(0.14 * height)
         self.movement = [spritemovement,0]
         self.ismoving = True
 
@@ -164,9 +164,12 @@ class playerpokemon(pygame.sprite.Sprite):
     def __init__(self,num):
         pygame.sprite.Sprite.__init__(self)
         self.num = num
-        self.image,self.rect = load_sprite_sheet('pokemon_gen1.png',65,1,65,65,int(0.25*width),int(0.4*height),-1)
+        self.x = int((num - 1) / 10)
+        self.y = num - (self.x) * 10
+
+        self.image,self.rect = load_sprite_sheet('pokemon_gen1.png',65 + 161*(self.y - 1),int(1 + 65.6*(self.x)),65,65,int(0.23*width),int(0.345*height),-1)
         self.rect.left = int(width*1.1)
-        self.rect.top = int(0.4 * height)
+        self.rect.top = int(0.44 * height)
         self.movement = [-spritemovement,0]
         self.ismoving = True
 
@@ -187,7 +190,7 @@ def main():
     bg_music.play(-1)
 
     wildPokemon = wildpokemon(22)
-    mypokemon = playerpokemon(1)
+    mypokemon = playerpokemon(88)
     grass = grasspatch()
 
     while not gameOver:
@@ -198,9 +201,10 @@ def main():
         pygame.draw.rect(screen, bg1, [0, 0, width, height])
 
         grass.draw()
+        mypokemon.draw()
         displaydialogboxbg()
         wildPokemon.draw()
-        mypokemon.draw()
+
 
         wildPokemon.update()
         mypokemon.update()
