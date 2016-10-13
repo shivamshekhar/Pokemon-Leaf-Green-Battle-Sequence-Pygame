@@ -204,7 +204,7 @@ def main():
     titlescreen = True
 
     titlebg,titlebgrect = load_image('bg_wallpaper.jpg',width,height)
-    logo,logorect = load_image('logo.png',-1,-1,-1)
+    logo,logorect = load_image('logo.png',width/2,int(height*0.4),-1)
     logorect.left = width/2 - logorect.width/2
     logorect.top = height/50
     venu,venurect = load_image('venusaur_sillhoute.jpg',int(width/2),int(height/2),-1)
@@ -239,7 +239,7 @@ def main():
             screen.blit(titlebg,titlebgrect)
             screen.blit(logo,logorect)
             screen.blit(venu, venurect)
-            displaytext('Written By : Shivam Shekhar',16,width/7,height - height/60,(255,255,255))
+            displaytext('Written By : Shivam Shekhar',int(0.0267*width),width/7,height - height/60,(255,255,255))
 
 
             pygame.display.update()
